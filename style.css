@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+.section-card{
+    display: grid;
+    grid-template-columns: repeat(5, 3.5rem);
+    grid-template-rows: repeat(7, 3.5rem);
+    grid-gap:5px;
+}
+.divCards{
+    width: 100%;
+    height: 100%;
+    border: 1px solid blue;
+}
+.imgCard, .backCard{
+    height: 100%;
+    width: 100%;
+}
