@@ -13,15 +13,25 @@
 .section-card{
     display: grid;
     grid-template-columns: repeat(5, 3.5rem);
-    grid-template-rows: repeat(7, 3.5rem);
-    grid-gap:5px;
+    grid-template-rows: repeat(8, 3.5rem);
+    grid-gap:3.5px;
 }
 .divCards{
     width: 100%;
     height: 100%;
     border: 1px solid blue;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .imgCard, .backCard{
     height: 100%;
     width: 100%;
+}
+.imgCard{
+    display: none;
+}
+.backCard{
+
 }

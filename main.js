@@ -45,6 +45,11 @@ const card = [
     {srcImg:"pancakes.png", name:'pancakes'},
 ]
 
+//array card random...
+const cardSort = card.sort(()=>Math.random() - 0.5);
+
+contador = 0;
+
 card.forEach((element) => {
     const divCards = document.createElement("div");
     const imgCard = document.createElement("img");
@@ -53,10 +58,41 @@ card.forEach((element) => {
     imgCard.classList.add("imgCard");
     backCard.classList.add("backCard");
     
+    backCard.id = new Date().valueOf();
     imgCard.src = `img/${element.srcImg}`;
+    imgCard.name = element.name;
 
     section.appendChild(divCards);
     divCards.appendChild(imgCard);
     divCards.appendChild(backCard);
 });
 
+arrayComparation = [];
+arrayCard = [];
+function target(item){
+    const target = item.target;
+    if (target.classList == 'backCard') {
+        //vuelvo al elemento hermano anterior(img)
+        const img = target.previousSibling;
+        img.style.display = 'block';
+        // pusheo el name del item al array cardNuevo
+        arrayComparation.push(img.name);
+          //aca ver como solucionar el item ya seleccionado como img,
+          // pasarlo a la clase backCard. mirar el console.log
+        console.log(target)
+    }
+    // console.log(target.parentNode.lastChild)
+    //compara que los dos items sean iguales o no. si son iguales los guarda en arrayComparation
+    if (arrayComparation.length == 2) {
+        if (arrayComparation[0] == arrayComparation[1]) {
+            arrayCard.push(arrayComparation[0],arrayComparation[1]);
+            arrayComparation = [];
+        }else{
+            //aca esta el problema         
+            arrayComparation = [];
+        }
+    }
+}
+
+
+section.addEventListener("click", target);
