@@ -1,98 +1,105 @@
-const section = document.querySelector(".section-card");
+document.addEventListener('DOMContentLoaded', () =>{
 
-const card = [
-    //20 cards
-    {srcImg:"beer.png", name:'beer'},
-    {srcImg:"bread.png", name:'bread'},
-    {srcImg:"burger.png", name:'burger'},
-    {srcImg:"chicken.png", name:'chicken'},
-    {srcImg:"coockie.png", name:'coockie'},
-    {srcImg:"cupcake.png", name:'cupcake'},
-    {srcImg:"donut.png", name:'donut'},
-    {srcImg:"flan.png", name:'flan'},
-    {srcImg:"fried-egg.png", name:'fried-egg'},
-    {srcImg:"hotdog.png", name:'hotdog'},
-    {srcImg:"ice-cream.png", name:'ice-cream'},
-    {srcImg:"croissant.png", name:'croissant'},
-    {srcImg:"milk.png", name:'milk'},
-    {srcImg:"pizza.png", name:'pizza'},
-    {srcImg:"popcorn.png", name:'popcorn'},
-    {srcImg:"ramen.png", name:'ramen'},
-    {srcImg:"sandwich.png", name:'sandwich'},
-    {srcImg:"sushi.png", name:'sushi'},
-    {srcImg:"tacos.png", name:'tacos'},
-    {srcImg:"pancakes.png", name:'pancakes'},
-    //repeat cards
-    {srcImg:"beer.png", name:'beer'},
-    {srcImg:"bread.png", name:'bread'},
-    {srcImg:"burger.png", name:'burger'},
-    {srcImg:"chicken.png", name:'chicken'},
-    {srcImg:"coockie.png", name:'coockie'},
-    {srcImg:"cupcake.png", name:'cupcake'},
-    {srcImg:"donut.png", name:'donut'},
-    {srcImg:"flan.png", name:'flan'},
-    {srcImg:"fried-egg.png", name:'fried-egg'},
-    {srcImg:"hotdog.png", name:'hotdog'},
-    {srcImg:"ice-cream.png", name:'ice-cream'},
-    {srcImg:"croissant.png", name:'croissant'},
-    {srcImg:"milk.png", name:'milk'},
-    {srcImg:"pizza.png", name:'pizza'},
-    {srcImg:"popcorn.png", name:'popcorn'},
-    {srcImg:"ramen.png", name:'ramen'},
-    {srcImg:"sandwich.png", name:'sandwich'},
-    {srcImg:"sushi.png", name:'sushi'},
-    {srcImg:"tacos.png", name:'tacos'},
-    {srcImg:"pancakes.png", name:'pancakes'},
-]
-
-//array card random...
-const cardSort = card.sort(()=>Math.random() - 0.5);
-
-contador = 0;
-
-card.forEach((element) => {
-    const divCards = document.createElement("div");
-    const imgCard = document.createElement("img");
-    const backCard = document.createElement("div");
-    divCards.classList.add("divCards");
-    imgCard.classList.add("imgCard");
-    backCard.classList.add("backCard");
+    const card = [
+        //20 cards
+        {img:"img/beer.png", name:'beer'},
+        {img:"img/bread.png", name:'bread'},
+        {img:"img/burger.png", name:'burger'},
+        {img:"img/chicken.png", name:'chicken'},
+        {img:"img/coockie.png", name:'coockie'},
+        {img:"img/cupcake.png", name:'cupcake'},
+        {img:"img/donut.png", name:'donut'},
+        {img:"img/flan.png", name:'flan'},
+        {img:"img/fried-egg.png", name:'fried-egg'},
+        {img:"img/hotdog.png", name:'hotdog'},
+        {img:"img/ice-cream.png", name:'ice-cream'},
+        {img:"img/croissant.png", name:'croissant'},
+        {img:"img/milk.png", name:'milk'},
+        {img:"img/pizza.png", name:'pizza'},
+        {img:"img/popcorn.png", name:'popcorn'},
+        {img:"img/ramen.png", name:'ramen'},
+        {img:"img/sandwich.png", name:'sandwich'},
+        {img:"img/sushi.png", name:'sushi'},
+        {img:"img/tacos.png", name:'tacos'},
+        {img:"img/pancakes.png", name:'pancakes'},
+        //repeat cards
+        {img:"img/beer.png", name:'beer'},
+        {img:"img/bread.png", name:'bread'},
+        {img:"img/burger.png", name:'burger'},
+        {img:"img/chicken.png", name:'chicken'},
+        {img:"img/coockie.png", name:'coockie'},
+        {img:"img/cupcake.png", name:'cupcake'},
+        {img:"img/donut.png", name:'donut'},
+        {img:"img/flan.png", name:'flan'},
+        {img:"img/fried-egg.png", name:'fried-egg'},
+        {img:"img/hotdog.png", name:'hotdog'},
+        {img:"img/ice-cream.png", name:'ice-cream'},
+        {img:"img/croissant.png", name:'croissant'},
+        {img:"img/milk.png", name:'milk'},
+        {img:"img/pizza.png", name:'pizza'},
+        {img:"img/popcorn.png", name:'popcorn'},
+        {img:"img/ramen.png", name:'ramen'},
+        {img:"img/sandwich.png", name:'sandwich'},
+        {img:"img/sushi.png", name:'sushi'},
+        {img:"img/tacos.png", name:'tacos'},
+        {img:"img/pancakes.png", name:'pancakes'},
+    ]
     
-    backCard.id = new Date().valueOf();
-    imgCard.src = `img/${element.srcImg}`;
-    imgCard.name = element.name;
+    //array card random...
+    card.sort(()=>Math.random() - 0.5);
 
-    section.appendChild(divCards);
-    divCards.appendChild(imgCard);
-    divCards.appendChild(backCard);
-});
+    const containerCard = document.querySelector(".div-container-card");
+    const result = document.querySelector('#result');
+    arrayCardWon = [];
+    arrayCardId = [];
+    arrayChosen = [];
 
-arrayComparation = [];
-arrayCard = [];
-function target(item){
-    const target = item.target;
-    if (target.classList == 'backCard') {
-        //vuelvo al elemento hermano anterior(img)
-        const img = target.previousSibling;
-        img.style.display = 'block';
-        // pusheo el name del item al array cardNuevo
-        arrayComparation.push(img.name);
-          //aca ver como solucionar el item ya seleccionado como img,
-          // pasarlo a la clase backCard. mirar el console.log
-        console.log(target)
-    }
-    // console.log(target.parentNode.lastChild)
-    //compara que los dos items sean iguales o no. si son iguales los guarda en arrayComparation
-    if (arrayComparation.length == 2) {
-        if (arrayComparation[0] == arrayComparation[1]) {
-            arrayCard.push(arrayComparation[0],arrayComparation[1]);
-            arrayComparation = [];
-        }else{
-            //aca esta el problema         
-            arrayComparation = [];
+    function printCards() {
+        for (let i = 0; i < card.length; i++) {
+            const imgCard = document.createElement("img");
+            imgCard.setAttribute('src', 'img/chef.png');
+            imgCard.setAttribute('idCard', i);
+            imgCard.addEventListener('click', flipCard)
+    
+            containerCard.appendChild(imgCard);
         }
     }
-}
 
+    function check(){
+        const cards = document.querySelectorAll('img');
+        const cardOne = arrayCardId[0];
+        const cardTwo = arrayCardId[1];
 
-section.addEventListener("click", target);
+        if (cardOne == cardTwo) {
+            console.log('matchhh');
+            cards[cardOne].setAttribute('src', 'img/beer.png');
+            cards[cardTwo].setAttribute('src', 'img/beer.png');
+        }
+        else if (arrayChosen[0] === arrayChosen[1]){
+            cards[cardOne].removeEventListener('click', flipCard);
+            cards[cardTwo].removeEventListener('click', flipCard);
+            arrayCardWon.push(arrayChosen);
+        }else{
+            cards[cardOne].setAttribute('src', 'img/chef.png');
+            cards[cardTwo].setAttribute('src', 'img/chef.png');
+        }
+        arrayChosen = [];
+        arrayCardId = [];
+        result.textContent = arrayCardWon.length;
+        if (arrayCardWon.length === card.length/2) {
+            result.textContent = "Congrulations!!";
+        }
+    }
+    
+    function flipCard(){
+        let cardId = this.getAttribute('idCard');
+        arrayChosen.push(card[cardId].name);
+        arrayCardId.push(cardId);
+        this.setAttribute('src', card[cardId].img);
+        if (arrayChosen.length === 2) {
+            setTimeout(check, 500);
+        }
+    }
+    
+    printCards();
+})

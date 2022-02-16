@@ -7,10 +7,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     width: 100vw;
 }
-.section-card{
+.div-container-card{
     display: grid;
     grid-template-columns: repeat(5, 3.5rem);
     grid-template-rows: repeat(8, 3.5rem);
@@ -25,13 +26,9 @@
     justify-content: center;
     align-items: center;
 }
-.imgCard, .backCard{
+img{
     height: 100%;
     width: 100%;
 }
-.imgCard{
-    display: none;
-}
-.backCard{
+    
 
-}
