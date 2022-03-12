@@ -63,6 +63,16 @@ document.addEventListener('DOMContentLoaded', () =>{
             containerCard.appendChild(srcImgCard);
         }
     }
+    
+    function flipCard(){
+        let cardId = this.getAttribute('idCard');
+        arrayChosen.push(card[cardId].name);
+        arrayCardId.push(cardId);
+        this.setAttribute('src', card[cardId].srcImg);
+        if (arrayChosen.length === 2) {
+            setTimeout(check, 300);
+        }
+    }
 
     function check(){
         const cards = document.querySelectorAll('img');
@@ -82,16 +92,6 @@ document.addEventListener('DOMContentLoaded', () =>{
         result.textContent = arrayCardWon.length;
         if (arrayCardWon.length === card.length/2) {
             result.textContent = "Congrulations!!";
-        }
-    }
-    
-    function flipCard(){
-        let cardId = this.getAttribute('idCard');
-        arrayChosen.push(card[cardId].name);
-        arrayCardId.push(cardId);
-        this.setAttribute('src', card[cardId].srcImg);
-        if (arrayChosen.length === 2) {
-            setTimeout(check, 500);
         }
     }
     
