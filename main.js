@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () =>{
 
     const card = [
-        //20 ci
+        //20
         {srcImg:"img/beer.png", name:'beer'},
         {srcImg:"img/bread.png", name:'bread'},
         {srcImg:"img/burger.png", name:'burger'},
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         {srcImg:"img/sushi.png", name:'sushi'},
         {srcImg:"img/tacos.png", name:'tacos'},
         {srcImg:"img/pancakes.png", name:'pancakes'},
-        //repeat is
+        //repeat
         {srcImg:"img/beer.png", name:'beer'},
         {srcImg:"img/bread.png", name:'bread'},
         {srcImg:"img/burger.png", name:'burger'},
